@@ -8,8 +8,20 @@ export default class BlogPost extends Component {
         post: []
     }
 
+    getPostAPI = () => {
+        axios.get('http://localhost:3004/posts')
+        .then((res)=>{
+            this.setState({
+                post : res.data
+            })
+        })
+    } 
+
     handleRemove = (data) => {
         console.log(data);
+        axios.delete(`http://localhost:3004/posts/${data}`).then((res)=>{
+            this.getPostAPI();
+        })
     }
 
     componentDidMount() {
@@ -20,12 +32,7 @@ export default class BlogPost extends Component {
         //             post: json
         //         })
         //     })
-        axios.get(' http://localhost:3004/posts')
-        .then((res)=>{
-            this.setState({
-                post : res.data
-            })
-        })
+        this.getPostAPI();
     }
 
     render() {
@@ -34,7 +41,7 @@ export default class BlogPost extends Component {
                 <p className="section-title">Blog Post</p>
                 {
                     this.state.post.map(post =>{
-                        return <Post key={post.id} title={post.title} desc={post.body} remove={this.handleRemove} />
+                        return <Post key={post.id} data={post} remove={this.handleRemove} />
                     })
                 }
             </Fragment>
