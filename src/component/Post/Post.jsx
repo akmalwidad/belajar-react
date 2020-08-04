@@ -10,6 +10,7 @@ export default function Post(props) {
                 <div className="content">
                     <p className="title">{props.title}</p>
                     <p className="desc">{props.desc}</p>
+                    <button className="remove" onClick={props.remove}>Remove</button>
                 </div>
             </div>
         </div>
