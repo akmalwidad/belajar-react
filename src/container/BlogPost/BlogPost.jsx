@@ -39,6 +39,13 @@ export default class BlogPost extends Component {
         return (
             <Fragment>
                 <p className="section-title">Blog Post</p>
+                <div className="form-add-post">
+                    <label htmlFor="title">Title</label>
+                    <input type="text" name="title" id="title" placeholder="add title" />
+                    <label htmlFor="body-content">Blog Content</label>
+                    <textarea name="body-content" id="body-content" cols="30" rows="10">Add Blog Content</textarea>
+                    <button className="btn-submit">Simpan</button>
+                </div>
                 {
                     this.state.post.map(post =>{
                         return <Post key={post.id} data={post} remove={this.handleRemove} />
