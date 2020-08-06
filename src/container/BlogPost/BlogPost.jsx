@@ -5,7 +5,13 @@ import axios from 'axios'
 
 export default class BlogPost extends Component {
     state = {
-        post: []
+        post: [],
+        formBlogPost: {
+            id: 1,
+            title: '',
+            body: '',
+            userId: 1
+        }
     }
 
     getPostAPI = () => {
@@ -21,6 +27,16 @@ export default class BlogPost extends Component {
         console.log(data);
         axios.delete(`http://localhost:3004/posts/${data}`).then((res)=>{
             this.getPostAPI();
+        })
+    }
+
+    handleFormChange = (event) =>{
+        let formBlogPostNew = {...this.state.formBlogPost};
+        formBlogPostNew[event.target.name] = event.target.value
+        this.setState({
+            formBlogPost: formBlogPostNew
+        }, () => {
+            console.log('value obj formBlogPost: ', this.state.formBlogPost);
         })
     }
 
@@ -41,9 +57,9 @@ export default class BlogPost extends Component {
                 <p className="section-title">Blog Post</p>
                 <div className="form-add-post">
                     <label htmlFor="title">Title</label>
-                    <input type="text" name="title" id="title" placeholder="add title" />
-                    <label htmlFor="body-content">Blog Content</label>
-                    <textarea name="body-content" id="body-content" cols="30" rows="10">Add Blog Content</textarea>
+                    <input type="text" name="title" id="title" placeholder="add title" onChange={this.handleFormChange} />
+                    <label htmlFor="body">Blog Content</label>
+                    <textarea name="body" id="body" cols="30" rows="10" placeholder="add blog content" onChange={this.handleFormChange}></textarea>
                     <button className="btn-submit">Simpan</button>
                 </div>
                 {
