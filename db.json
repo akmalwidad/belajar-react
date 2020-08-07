@@ -589,9 +589,21 @@
       "userId": 1
     },
     {
-      "id": 1596768498955,
-      "title": "Tokyo",
-      "body": "GOOD LIFE",
+      "id": 1596818921783,
+      "title": "Belajar React with Json Server",
+      "body": "GET, DELETE, POST, PUT",
+      "userId": 1
+    },
+    {
+      "id": 1596819386396,
+      "title": "Next belajar Router React",
+      "body": "YUUU BISAAA YUUU",
+      "userId": 1
+    },
+    {
+      "id": 1596819557460,
+      "title": "SABTU - MINGGU PRODUKTIF",
+      "body": "YUUUU BISAAA YUUUU",
       "userId": 1
     }
   ],
