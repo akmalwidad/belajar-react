@@ -15,7 +15,7 @@ export default class BlogPost extends Component {
     }
 
     getPostAPI = () => {
-        axios.get('http://localhost:3004/posts')
+        axios.get('http://localhost:3004/posts?_sort=id&_order=desc')
         .then((res)=>{
             this.setState({
                 post : res.data
@@ -23,8 +23,17 @@ export default class BlogPost extends Component {
         })
     } 
 
+    postDataToAPI = () =>{
+        axios.post('http://localhost:3004/posts', this.state.formBlogPost).then((res) =>{
+            this.getPostAPI();
+            console.log(res);
+        }, (err) =>{
+            console.log('error: ', err);
+        })
+    }
+
     handleRemove = (data) => {
-        console.log(data);
+        // console.log(data);
         axios.delete(`http://localhost:3004/posts/${data}`).then((res)=>{
             this.getPostAPI();
         })
@@ -32,12 +41,16 @@ export default class BlogPost extends Component {
 
     handleFormChange = (event) =>{
         let formBlogPostNew = {...this.state.formBlogPost};
+        let timeStamp = new Date().getTime();
+        formBlogPostNew['id'] = timeStamp;
         formBlogPostNew[event.target.name] = event.target.value
         this.setState({
             formBlogPost: formBlogPostNew
-        }, () => {
-            console.log('value obj formBlogPost: ', this.state.formBlogPost);
         })
+    }
+
+    handleSubmit = () =>{
+        this.postDataToAPI();
     }
 
     componentDidMount() {
@@ -60,7 +73,7 @@ export default class BlogPost extends Component {
                     <input type="text" name="title" id="title" placeholder="add title" onChange={this.handleFormChange} />
                     <label htmlFor="body">Blog Content</label>
                     <textarea name="body" id="body" cols="30" rows="10" placeholder="add blog content" onChange={this.handleFormChange}></textarea>
-                    <button className="btn-submit">Simpan</button>
+                    <button className="btn-submit" onClick={this.handleSubmit}>Simpan</button>
                 </div>
                 {
                     this.state.post.map(post =>{
