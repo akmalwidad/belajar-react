@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-// import YouTubeComp from '../../component/YoutubeComp/YouTubeComp'
-// import Product from '../Product/Product'
-// import LifeCycleComp from '../LifeCycleComp/LifeCycleComp'
+import YouTubeComp from '../../component/YoutubeComp/YouTubeComp'
+import Product from '../Product/Product'
+import LifeCycleComp from '../LifeCycleComp/LifeCycleComp'
 import BlogPost from '../BlogPost/BlogPost'
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import './Home.css'
 
 export default class Home extends Component {
     state = {
@@ -19,42 +21,17 @@ export default class Home extends Component {
 
     render() {
         return (
-            <div>
-                {/* <p>Youtube Component</p>
-                <hr/>
-                <YouTubeComp 
-                time="3.14" 
-                title="Hush Official Video"
-                desc="50jt ditonton, 1 bulan yang lalu"
-                />
-                <YouTubeComp 
-                time="3.10" 
-                title="Hush Official Audio"
-                desc="45jt ditonton, 2 bulan yang lalu"
-                />
-                <YouTubeComp 
-                time="2.40" 
-                title="Hush Official Lirik"
-                desc="40jt ditonton, 3 bulan yang lalu"
-                />
-                <YouTubeComp 
-                time="2.50" 
-                title="Hush Official Remix"
-                desc="30jt ditonton, 4 bulan yang lalu"
-                />
-                <YouTubeComp/> */}
-                {/* <p>Counter</p>
-                <hr/>
-                <Product/> */}
-                {/* <p>LifeCycle</p>
-                <hr />
-                {
-                    this.state.showComponent ? <LifeCycleComp /> : null
-                } */}
-                <p>Blog Post</p>
-                <hr/>
-                <BlogPost/>
-            </div>
+            <Router>
+                <div className="navigation">        
+                    <Link to="/">Halaman Blogpost</Link>
+                    <Link to="/product">Halaman Product</Link>
+                    <Link to="/lifecycle">Halaman LifeCycleComp</Link>
+                </div>            
+
+                <Route path="/" exact component={BlogPost} />
+                <Route path="/product" component={Product} />
+                <Route path="/lifecycle" component={LifeCycleComp} />
+            </Router>
         )
     }
 }

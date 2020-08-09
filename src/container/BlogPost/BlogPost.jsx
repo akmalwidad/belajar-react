@@ -106,6 +106,8 @@ export default class BlogPost extends Component {
     render() {
         return (
             <Fragment>
+                <h1>Belajar GET API</h1>
+                <hr/>
                 <p className="section-title">Blog Post</p>
                 <div className="form-add-post">
                     <label htmlFor="title">Title</label>

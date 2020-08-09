@@ -59,6 +59,8 @@ export default class LifeCycleComp extends Component {
         console.log("render");
         return (
             <div>
+                <h1>Learn LifeCycleComp</h1>
+                <hr/>
                 <button className="btn" onClick={this.changeCount}>Component Button {this.state.count}</button>
             </div>
         )

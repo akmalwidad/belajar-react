@@ -5,7 +5,7 @@ export default function YouTubeComp(props) {
     return (
         <div className="youtube-wrapper">
             <div className="img-tumb">
-                <img src="https://i.ytimg.com/an_webp/nfVcDJ584RA/mqdefault_6s.webp?du=3000&sqp=CKDVkPkF&rs=AOn4CLAePTkZvj6hBZukxXGrB1LieA8aBA" alt="" />
+                <img src="https://placeimg.com/200/150/tech" alt="" />
                 <p className="time">{props.time}</p>
             </div>
             <p className="title">{props.title}</p>
