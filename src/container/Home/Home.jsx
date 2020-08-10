@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import YouTubeComp from '../../component/YoutubeComp/YouTubeComp'
+// import YouTubeComp from '../../component/YoutubeComp/YouTubeComp'
 import Product from '../Product/Product'
-import LifeCycleComp from '../LifeCycleComp/LifeCycleComp'
-import BlogPost from '../BlogPost/BlogPost'
+import LifeCycleComp from '../pages/LifeCycleComp/LifeCycleComp'
+import BlogPost from '../pages/BlogPost/BlogPost'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import './Home.css'
 
