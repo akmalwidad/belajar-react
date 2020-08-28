@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import './Product.css'
-import CardProduct from '../pages/CardProduct/CardProduct'
+import CardProduct from './CardProduct/CardProduct'
 
 export default class Product extends Component {
     state = {
